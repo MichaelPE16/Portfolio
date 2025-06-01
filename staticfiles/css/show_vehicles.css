@@ -1,0 +1,29 @@
+ 
+.home{
+    color:#ededed;
+    max-width: 100%; 
+    width: auto;
+    margin: 0;
+    padding-top: 60px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+strong{
+    color: #ededed;
+}
+
+.list-group-item{
+    background-color: transparent;
+}
+a{
+    text-decoration: none;
+}
+.list-group-item:hover{
+    border: #ededed;
+    border-style:groove;
+    border-radius: 15px;
+}
+.year {
+    color: #00abf0;
+}
+

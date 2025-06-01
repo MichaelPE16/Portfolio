@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{%load static%}
+<link rel="stylesheet" href="{% static 'css/show_vehicles.css'%}">
+{%block content %}
+
+<div class="card" style="width: 25rem; margin-top: 200px; margin-left: 35%;">
+    <img src="{{vehicle.image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title d-inline-flex"><h1>{{vehicle.name}}</h1><strong>{{vehicle.model}}</strong></h5>
+      <p class="card-text">Year : {{vehicle.year}}</p>
+      <p class="card-text">Description: {{vehicle.description}}</p>
+      <div class="container d-flex" style="justify-content: space-between;">
+        {%if vehicle.rent == False%}
+        <form action="{%url 'rented' vehicle.id%}" method="POST">
+          {%csrf_token%}
+          <button class="btn btn-success">RENT</button>
+        </form>
+        <a href="{%url 'update' vehicle.id %}" class="btn btn-primary">UPDATE</a>
+        <form action="{%url 'delete' vehicle.id%}" method="POST">
+          {%csrf_token%}
+          <button class="btn btn-danger">DELTE</button>
+          {%else%}
+          <a href="{%url 'update' vehicle.id %}" class="btn btn-primary">UPDATE</a>
+        <form action="{%url 'delete' vehicle.id%}" method="POST">
+          {%csrf_token%}
+          <button class="btn btn-danger">DELTE</button>
+        {%endif%}
+        </form>
+
+      </div>
+    </div>
+  </div>
+{%endblock%}

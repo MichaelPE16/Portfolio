@@ -1,0 +1,75 @@
+{% extends 'base.html'%}
+
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/show_vehicles.css'%}">
+
+<div class="container">
+    <!-- this element will maje a search in the cars i have and then return the ones selected -->
+    
+    <div class="home">
+        <h2 class="mt-5">{{rented}}</h2>
+        <br>
+        {%if rented == 'Vehicles Not Rented'%} 
+<!-- verificar la redundancia de los dos search -->
+        <form class=" search d-flex py-5" role="search" action="" method="post" style="width: 55%;">
+            {% csrf_token %}
+            <input class="form-control me-5 pe-5" type="search" name="search" placeholder="Search Vehicle" aria-label="Search" value="{{search_query}}"/>
+            <button class="btn btn-outline-info"  type="submit">Search</button>
+          </form>
+
+        {%else%}
+        {%csrf_token%}
+        <form class=" search d-flex py-5" role="search" action="{%url'rented_vehicles'}" method="post" style="width: 55%;">
+            {% csrf_token %}
+            <input class="form-control me-5 pe-5" type="search" name="search" placeholder="Search Vehicle" aria-label="Search" value="{{search_query}}"/>
+            <button class="btn btn-outline-info"  type="submit">Search</button>
+          </form>
+
+        {%endif%}
+
+        {% for vehicle in vehicles%}
+    {% if vehicle.rent == False %}
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col">   
+                <ul class="list-group">
+                    <a href="{%url 'details' vehicle.id %}">
+                        <li class="list-group-item d-flex">
+                                <strong class="ms-2 p-2">{{vehicle.name}}</strong>
+                                <strong class="ms-2 p-2">{{vehicle.model}}</strong>
+                            <stron class="ms-auto p-2 b-0 year">{{vehicle.year}}</strong>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {%else%}
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col">   
+                <ul class="list-group list-inline">
+                    <a href="{%url 'details' vehicle.id %}">
+                        <li class="list-group-item d-flex">
+                                <strong class="ms-2 p-2">{{vehicle.name}}</strong>
+                                <strong class="ms-2  p-2">{{vehicle.model}}</strong>
+                            <stron class="ms-auto p-2 b-0 year">{{vehicle.year}}</strong>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {%endif%}
+    {% endfor%}
+
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+

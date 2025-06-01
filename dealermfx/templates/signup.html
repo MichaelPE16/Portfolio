@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+
+{% block content%}
+
+<style>
+    label{ 
+        color: rgb(0, 0, 0);
+    }
+</style>
+
+
+<main class="container" style="margin-top: 15%;">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-5">
+            <form  method="POST" class="card card-body">
+                <label class="text-danger"> {{error}}</label>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="username"> Username: </label>
+                    <input type="text" name="username" class="form-control" id="username" placeholder="Username...">
+                </div>
+                <div class="mb-3">
+                    <label for="password1"> Password: </label>
+                    <input type="password" name="password1" class="form-control" id="password1"
+                        placeholder="Password...">
+                </div>
+                <div class="mb-3">
+                    <label for="password2"> Password: </label>
+                    <input type="password" name="password2" class="form-control" id="password2"
+                        placeholder="Password...">
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-primary">Sign Up</button>
+                </div>
+                <div class="text-center">
+                <a href="{%url 'signin'%}">Sing in instead?</a>
+            </div>
+            </form>
+            
+        </div>
+    </div>
+</main>
+{% endblock%}

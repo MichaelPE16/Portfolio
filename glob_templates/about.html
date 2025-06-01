@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+{% load static%}
+
+{% block content%}
+<link rel="stylesheet" href="{% static 'css/about.css'%}">
+
+<!-- session personal info -->
+
+    <section class="home">
+        <div class="home-content">
+        <h1>Hi, I'm Michael</h1>
+        <h3>Backend Developer</h3>
+        <p>Junior Software Developer with expertise in Python 
+            and backend technologies, seeking to join a dynamic 
+            team where I can apply my technical skills and grow 
+            professionally. Passionate about process automation 
+            and committed to continuous learning of new technologies.</p>
+            <div class="btn-box">
+                <a target='_blank' href="https://www.linkedin.com/in/michael-pacheco-encarnacion/"> Available</a>
+                <a href="https://wa.me/8494014343?text=Hello%2C%20I%20am%20interested%20in%20your%20business"> Let's Talk</a>
+            </div>
+
+            <!-- icons -->
+            <div class="icons">
+                <a  target="_blank" href="https://github.com/MichaelPE16"><i class="bi bi-github"></i></a>
+                <a  target="_blank" href="https://www.instagram.com/__elmik3/"><i class="bi bi-instagram"></i></a>
+                <a  target="_blank" href="mailto:rafael112216@gmail.com"><i class="bi bi-envelope"></i></a>
+                <a  target="_blank" href="https://www.linkedin.com/in/michael-pacheco-encarnacion/"><i class="bi bi-linkedin"></i></a>
+                <a  target="_blank" href="https://wa.me/8494014343?text=Hello%2C%20I%20am%20interested%20in%20your%20business"><i class="bi bi-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <div class="home-image">
+            <img src="{% static 'images/Picture.jpg'%}">
+        </div>
+
+        
+        
+        </section>
+
+
+{% endblock %}
