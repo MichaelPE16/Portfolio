@@ -23,4 +23,5 @@ urlpatterns = [
     path('about/', views.about, name= 'about'),
     path('admin/', admin.site.urls),
     path('vehicles/', include('dealermfx.urls'), name = 'vehicles'),
+    path('screener/', include('screener.urls'), name = 'screener'),
 ]
