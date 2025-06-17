@@ -1,6 +1,3 @@
-from logging import PlaceHolder
-from os import name
-from django.db.models.expressions import fields
 from django.forms import ModelForm, widgets
 from .models import table_vehicles
 from django import forms
