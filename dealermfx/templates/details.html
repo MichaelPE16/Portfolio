@@ -18,12 +18,13 @@
         <a href="{%url 'update' vehicle.id %}" class="btn btn-primary">UPDATE</a>
         <form action="{%url 'delete' vehicle.id%}" method="POST">
           {%csrf_token%}
-          <button class="btn btn-danger">DELTE</button>
+          <button class="btn btn-danger">DELETE</button>
           {%else%}
           <a href="{%url 'update' vehicle.id %}" class="btn btn-primary">UPDATE</a>
         <form action="{%url 'delete' vehicle.id%}" method="POST">
           {%csrf_token%}
-          <button class="btn btn-danger">DELTE</button>
+          <button class="btn btn-danger">DELETE</button>
+
         {%endif%}
         </form>
 

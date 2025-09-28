@@ -1,4 +1,4 @@
-from django.forms import ModelForm, widgets
+from django.forms import ModelForm
 from .models import table_vehicles
 from django import forms
 

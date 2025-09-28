@@ -17,7 +17,7 @@ def show_vehicles(request):
         search = request.POST["search"]
         vehicles  = table_vehicles.objects.filter(name__contains = search ,user = request.user, rent = False)
         return render(request, 'show_vehicles.html', {'vehicles': vehicles, 'rented':'Vehicles Not Rented', 'search':search})
-    else: 
+    else:
         vehicles  = table_vehicles.objects.filter(user = request.user, rent = False)
     return render(request, 'show_vehicles.html', {'vehicles': vehicles, 'rented':'Vehicles Not Rented'})
 
@@ -39,8 +39,7 @@ def vehicles_details(request, id_vehicle):
 
 #Details Vehicles funtions
 def update_form(request, id_vehicle):
-
-        if request.method == 'GET': 
+        if request.method == 'GET':
             vehicle = get_object_or_404(table_vehicles,pk = id_vehicle, user = request.user)
             form = vehicleForm(instance = vehicle)
             return render(request, 'update_vehicle.html', {'vehicle': vehicle, 'form': form})
@@ -50,8 +49,8 @@ def update_form(request, id_vehicle):
                 form = vehicleForm(request.POST, instance = vehicle)
                 form.save()
                 return redirect('show_vehicles')
-            except ValueError: 
-                return render(request, 'update_vehicle.html', {'vehicle': vehicle, 'form': form, 'error': 'NO data suported'})
+            except ValueError:
+                return render(request, 'update_vehicle.html', {'vehicle': vehicle, 'form': form, 'error': 'Wrong data type'})
 
 #delete vehicle
 def delete_vehicle(request, id_vehicle):
@@ -65,8 +64,8 @@ def delete_vehicle(request, id_vehicle):
 def rented_vehicle(request, id_vehicle): 
     vehicle = get_object_or_404(table_vehicles, pk =id_vehicle, user = request.user)
     if request.method == 'POST': 
-        if vehicle.rent == False and (vehicle.rented == None or vehicle.rented < datetime.now()):
-            vehicle.rented = datetime.now()
+        if vehicle.rent == False and (vehicle.rented == None or vehicle.rented < datetime.now().date()):
+            vehicle.rented = datetime.now().date()
             vehicle.rent = True
             vehicle.save()
             return redirect('rented_vehicles')
@@ -79,9 +78,9 @@ def rented_vehicle(request, id_vehicle):
 
 
 #sign up    
-def signup(request): 
+def signup(request):
     
-    if request.method == 'GET': 
+    if request.method == 'GET':
         return render(request, 'signup.html', {'form': UserCreationForm})
     else:  
             if request.POST['password1'] == request.POST['password2']: 
