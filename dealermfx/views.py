@@ -44,7 +44,7 @@ def update_form(request, id_vehicle):
             form = vehicleForm(instance = vehicle)
             return render(request, 'update_vehicle.html', {'vehicle': vehicle, 'form': form})
         else:
-            try: 
+            try:
                 vehicle = get_object_or_404(table_vehicles, pk = id_vehicle, user = request.user)
                 form = vehicleForm(request.POST, instance = vehicle)
                 form.save()
@@ -114,7 +114,7 @@ def logout_page(request):
     return redirect('signin')
 
 #create_vehicle
-def create(request): 
+def create(request):
     if request.method == 'GET': 
        return render(request, 'create_vehicle.html', {'form': vehicleForm})
     else: 
