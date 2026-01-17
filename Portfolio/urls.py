@@ -26,8 +26,6 @@ urlpatterns = [
     path('about/', views.about, name= 'about'),
     path('admin/', admin.site.urls),
     path('vehicles/', include('dealermfx.urls'), name = 'vehicles'),
-    path('screener/', include('screener.urls'), name = 'screener'),
-    path('sales/', include('salesReport.urls'), name= 'sales'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
