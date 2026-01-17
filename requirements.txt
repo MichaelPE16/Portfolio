@@ -6,6 +6,7 @@ packaging==25.0
 pluggy==1.6.0
 Pygments==2.19.2
 pytest==9.0.2
+python-dotenv==1.2.1
 sqlparse==0.5.5
 tzdata==2025.3
-whitenoise==6.6.0
+whitenoise==6.11.0
