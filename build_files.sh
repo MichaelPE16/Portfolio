@@ -1,5 +1,7 @@
 #!/bin/bash
 echo "BUILD START"
-python3.9 -m pip install -r requirements.txt --break-system-packages
-python3.9 manage.py collectstatic --noinput --clear
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python manage.py collectstatic --noinput --clear
 echo "BUILD END"
