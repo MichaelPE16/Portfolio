@@ -8,7 +8,6 @@ https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/
 """
 
 import os
-
 import sys
 
 # Add the project root to sys.path
@@ -18,7 +17,7 @@ if path not in sys.path:
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Portfolio.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Portfolio.settings")
 
 application = get_wsgi_application()
 app = application

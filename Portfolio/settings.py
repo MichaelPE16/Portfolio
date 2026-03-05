@@ -129,8 +129,7 @@ STATICFILES_DIRS = [
 ]
 # Vercel filesystem is read-only, use /tmp for static files if needed
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build')
-if not os.path.exists(STATIC_ROOT):
-     STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
